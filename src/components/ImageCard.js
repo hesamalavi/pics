@@ -13,6 +13,7 @@ export default class ImageCard extends React.Component {
     }
     setSpans = () => {
         const height = this.imageRef.current.clientHeight;
+        // divide by 10 because grid auto-rows: 10px;
         const spans = Math.ceil(height / 10);
         this.setState({ spans });
         // this.setState({ spans: spans}) the above is a shorthand es6 because the key and value name are the same
