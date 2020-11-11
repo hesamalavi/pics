@@ -19,11 +19,25 @@ export default class ImageCard extends React.Component {
         // this.setState({ spans: spans}) the above is a shorthand es6 because the key and value name are the same
     };
     render() {
-        const { description, urls } = this.props.image;
+        const { description, urls, links } = this.props.image;
+
         return (
-            <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
-                <img ref={this.imageRef} alt={description} src={urls.regular} />
-            </div>
+            <>
+                <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
+                    <a
+                        href={links.download}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            ref={this.imageRef}
+                            alt={description}
+                            src={urls.regular}
+                        />
+                    </a>
+                </div>
+            </>
         );
     }
 }
